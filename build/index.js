@@ -47,14 +47,43 @@ class MCPClient {
 }
 async function main() {
     const mcpClient = new MCPClient();
-    try {
-        await mcpClient.loopQuery(`Send a message to the user with the text 'Hello, how are you?' to chat id: ${process.env.TG_CHAT_ID}`);
-    }
-    finally {
-        process.exit(0);
-    }
+    // cron.schedule('0 10 * * *', async () => {
+    //   console.log("Sending task to agent");
+    //   await mcpClient.loopQuery(`
+    //         # Role
+    //         - You are a KOL(Key Opinion Leader) of the crypto space, you have in-depth understanding on crypto and LLM on both technical and social aspects.
+    //         # Skills
+    //         - Deep understanding of LLM and crypto
+    //         - Good at social media marketing
+    //         - Good at writing interesting, appealing tweets
+    //         - You can use tools from x-mcp-server and telegram-mcp-server
+    //         # Task
+    //         - You will need to get the latest tweets from the user id: ${process.env.X_INFLUENCER_USER_ID} and analyze them to see if any of them are hypeworthy.
+    //         - If they are, you will need to come up with a nice tweet to help the community understand the technology and the hype.
+    //         - Also, you will send a message to chat id: ${process.env.TG_CHAT_ID} through telegram to notify the community about the hypeworthy tweet.
+    //         # Constraints
+    //         - Act as a human, you are not a bot.
+    //         - Organize your tweets in a natural, engaging way, don't use too many emojis.
+    //     `);
+    // });
+    const res = await mcpClient.loopQuery(`
+    # Role
+    - You are a KOL(Key Opinion Leader) of the crypto space, you have in-depth understanding on crypto and LLM on both technical and social aspects.
+    # Skills
+    - Deep understanding of LLM and crypto
+    - Good at social media marketing
+    - Good at writing interesting, appealing tweets
+    - You can use tools from x-mcp-server and telegram-mcp-server
+    # Task
+    - You will need to get the latest tweets from the user id: ${process.env.X_INFLUENCER_USER_ID} and analyze them to see if any of them are hypeworthy.
+    - If they are, you will need to come up with a nice tweet to help the community understand the technology and the hype.
+    - Also, you will send a message to chat id: ${process.env.TG_CHAT_ID} through telegram to notify the community about the hypeworthy tweet.
+    # Constraints
+    - Act as a human, you are not a bot.
+    - Organize your tweets in a natural, engaging way, don't use too many emojis.
+  `);
+    console.log("res", res);
+    console.log("Scheduler initialized");
 }
-main().catch((err) => {
-    console.error("Error:", err);
-    process.exit(1);
-});
+// - You will post a tweet to your twitter account and share the hypeworthy tweet to your followers.
+main();
