@@ -2,7 +2,7 @@ import './setup.js';
 import { Anthropic } from "@anthropic-ai/sdk";
 import dotenv from "dotenv";
 import { AnthropicChatAdapter } from "@smithery/sdk/integrations/llm/anthropic.js";
-import tgMCPClient from "./mcps/tg-mcp-server.js";
+import clients from "./mcps/index.js";
 dotenv.config();
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 if (!ANTHROPIC_API_KEY) {
@@ -27,7 +27,7 @@ class MCPClient {
             content: query,
         });
         while (!isDone) {
-            const adapter = new AnthropicChatAdapter(tgMCPClient);
+            const adapter = new AnthropicChatAdapter(clients);
             const response = await chatState.llm.beta.messages.create({
                 model: "claude-3-5-sonnet-20241022",
                 max_tokens: 2056,
