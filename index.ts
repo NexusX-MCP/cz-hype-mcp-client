@@ -98,10 +98,10 @@ async function main() {
     - Organize your tweets in a natural, engaging way, don't use too many emojis.
     # Output
     - The output should be a tweet following the format(you can organize the content in a natural way as a tweet):
-      <Title>
+      <Title>[Title of the tweet][emoji]
       <Content>
-      - Thing 1(a keyword, a project(technique), a person, etc.) that was mentioned by cz
-          - Orginal tweet: [Orginal tweet]
+      - Thing 1(a keyword, a project(technique), a person, etc.) that was mentioned by cz [emoji] 
+          - Orginal tweet: [Orginal tweet text, simplify it if needed]
           - Things worth notice: [Things worth notice]
           - Explanation: [Explanation, cz's opinion]
           - Why it's important: [Why it's important]
