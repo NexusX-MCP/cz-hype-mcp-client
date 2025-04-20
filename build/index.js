@@ -62,7 +62,7 @@ async function main() {
           - get_tweets_by_userid: Use this to fetch posts from CZ's account. Parameters:
             - userId: ${process.env.CZ_USER_ID} (CZ's user ID)
             - maxResults: 20 (fetch the latest 20 posts)
-            - exclude: ["retweets", "replies"] (exclude retweets and replies to focus on original posts)
+            - exclude: ["replies"] (exclude replies to focus on original posts)
           - quote_tweet: Use this to post your meme as a quote post. Parameters:
             - tweetId: The ID of the selected post to quote(Get from get_tweets_by_userid)
             - replyText: Your generated funny caption (must be under 280 characters)
