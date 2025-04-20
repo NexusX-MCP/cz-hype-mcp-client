@@ -111,14 +111,10 @@ async function main() {
     `);
   }
 
-  cron.schedule('0 */12 * * *', async () => {
+  cron.schedule('0 0 * * *', async () => {
     console.log("Sending task to agent");
     await postCZNews();
   });
-
-  await postCZNews();
-
-
 
     console.log("Scheduler initialized");
   } catch (error) {
