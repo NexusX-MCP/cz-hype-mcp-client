@@ -86,11 +86,8 @@ async function main() {
             - replyText: Your generated funny caption (must be under 280 characters)
         # Instructions
           1. Fetch Posts: Call get_tweets_by_userid with the specified parameters to retrieve CZ's latest original posts.
-          2. Analyze Posts: Review the fetched posts and select the one that is most suitable for a meme. Focus on posts that are:
-            - Controversial (e.g., discussing market trends or regulatory issues)
-            - Educational (e.g., explaining a crypto concept)
-            - Related to AI (e.g., mentioning AI integrations in crypto) Avoid posts that are purely numerical (e.g., "X amount of BNBs") or routine updates.
-
+          2. Analyze Posts: Review the fetched posts and randomly select one, Chinese tweets are also welcome to select, but you should only post in English.
+    
         # Generate Caption: Create a funny, witty, and engaging caption for the selected post. Ensure the caption:
           - Is under 280 characters
           - Appeals to the web3 community
@@ -117,12 +114,12 @@ async function main() {
     `);
   }
 
-  cron.schedule('0 0 * * *', async () => {
+  cron.schedule('0 0 */2 * *', async () => {
     console.log("Sending task to agent");
     await postCZNews();
   });
 
-  await postCZNews();
+//  await postCZNews();
 
     console.log("Scheduler initialized");
   } catch (error) {
