@@ -81,6 +81,8 @@ async function main() {
 
         # Post Meme: Call quote_tweet with the selected post's ID and your generated caption.
 
+        # Post to TG:  - Post telegram: You will send a message to chat id: ${process.env.TG_CHAT_ID} through telegram to notify the community about the hypeworthy tweet.
+
         # Guidelines
           - Act as a human who is genuinely interested in the crypto space, not as a bot.
           - Ensure your caption is creative and shareable, with potential to go viral in the web3 community.
