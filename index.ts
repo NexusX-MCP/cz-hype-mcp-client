@@ -119,7 +119,7 @@ async function main() {
     await postCZNews();
   });
 
-//  await postCZNews();
+  await postCZNews();
 
     console.log("Scheduler initialized");
   } catch (error) {
