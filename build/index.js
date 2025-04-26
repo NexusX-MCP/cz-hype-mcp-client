@@ -99,8 +99,8 @@ async function main() {
             console.log("Sending task to agent");
             await postCZNews();
         });
-        await postCZNews();
         console.log("Scheduler initialized");
+        await postCZNews();
     }
     catch (error) {
         console.error(error);
