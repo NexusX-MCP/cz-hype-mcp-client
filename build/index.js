@@ -95,12 +95,12 @@ async function main() {
           - Respect the character limit for X posts (280 characters) when crafting your caption.
     `);
         }
-        cron.schedule('0 0 */2 * *', async () => {
+        cron.schedule('0 0 */3 * *', async () => {
             console.log("Sending task to agent");
             await postCZNews();
         });
         console.log("Scheduler initialized");
-        await postCZNews();
+        // await postCZNews();
     }
     catch (error) {
         console.error(error);
